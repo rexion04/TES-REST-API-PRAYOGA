@@ -12,6 +12,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // --- ROUTE PROTECTED (Hanya bisa diakses jika punya Token JWT) ---
 Route::middleware('auth:api')->group(function () {
     Route::post('/topup', [TransactionController::class, 'topup']);
+    Route::post('/payment', [TransactionController::class, 'payment']);
     Route::post('/transfer', [TransactionController::class, 'transfer']);
     Route::get('/report', [TransactionController::class, 'report']);
 
